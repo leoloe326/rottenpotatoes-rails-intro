@@ -27,13 +27,12 @@ class MoviesController < ApplicationController
     elsif(option==nil)
       @selected = @all_ratings
       @movies = Movie.all
-    end
-
-    if(rating!=nil)
-      @selected = rating.keys
-      @movies = Movie.where(rating:@selected)
-    else
-      @movies = Movie.all
+      if(rating!=nil)
+        @selected = rating.keys
+        @movies = Movie.where(rating:@selected)
+      else
+        @movies = Movie.all
+      end
     end
   end
 
